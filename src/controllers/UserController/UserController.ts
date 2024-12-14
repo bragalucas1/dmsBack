@@ -17,6 +17,8 @@ export class UserController {
     }
   }
 
+  //Here, we could do a recurrent call to the getUsers above and filter the result returning by userId, 
+  // but we are going to use the same logic for all the methods available in the documentation.
   async getUserById(req: Request, res: Response) {
     try {
       const id = parseInt(req.params.id);
@@ -38,7 +40,6 @@ export class UserController {
       const newUser = await this.userService.createUser(userData);
       res.status(201).json(newUser);
     } catch (error) {
-        console.log(error);
       res.status(500).json({ error: 'Erro ao criar usuário' });
     }
   }

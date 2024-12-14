@@ -7,12 +7,12 @@ export class UserService {
   private baseUrl = config.api.baseUrl;
 
   async getUsers(): Promise<User[]> {
-    const response = await axios.get(this.baseUrl);
+    const response = await axios.get(`${this.baseUrl}/users`);
     return response.data;
   }
 
   async getUserById(id: number): Promise<User> {
-    const response = await axios.get(`${this.baseUrl}/${id}`);
+    const response = await axios.get(`${this.baseUrl}/users/${id}`);
     return response.data;
   }
 
@@ -26,7 +26,7 @@ export class UserService {
   }
 
   async updateUser(id: number, userData: Partial<User>): Promise<User> {
-    const response = await axios.put(`${this.baseUrl}/${id}`, userData, {
+    const response = await axios.put(`${this.baseUrl}/users/${id}`, userData, {
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
@@ -35,7 +35,7 @@ export class UserService {
   }
 
   async deleteUser(id: number): Promise<boolean> {
-    const response = await axios.delete(`${this.baseUrl}/${id}`);
+    const response = await axios.delete(`${this.baseUrl}/users/${id}`);
     return response.status === 200;
   }
 }
