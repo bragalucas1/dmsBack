@@ -27,7 +27,6 @@ Ensure the following software is installed on your system:
 
 ```bash
 git clone https://github.com/bragalucas1/dmsBack.git
-cd back-end
 ```
 
 ### 2. **Install Dependencies**
