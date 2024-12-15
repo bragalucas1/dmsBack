@@ -15,11 +15,6 @@ app.use("/api/photos", photoRoutes);
 
 const PORT = config.server.port;
 
-app.use((req, res, next) => {
-  console.log(`Incoming request: ${req.method} ${req.url}`);
-  next();
-});
-
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
