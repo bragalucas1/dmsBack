@@ -10,7 +10,6 @@ export class AlbumController {
 
   async getUserAlbums(req: Request, res: Response) {
     try {
-      console.log("aqui");
       const userId = parseInt(req.params.userId);
       const albums = await this.albumService.getUserAlbums(userId);
       res.json(albums);

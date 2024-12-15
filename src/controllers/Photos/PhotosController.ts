@@ -12,7 +12,6 @@ export class PhotoController {
     try {
       const albumId = parseInt(req.params.albumId);
       const photos = await this.photoService.getAlbumPhotos(albumId);
-      console.log(photos);
       res.json(photos);
     } catch (error) {
       res.status(500).json({ error: "Erro ao buscar fotos" });

@@ -15,27 +15,4 @@ export class UserService {
     const response = await axios.get(`${this.baseUrl}/users/${id}`);
     return response.data;
   }
-
-  async createUser(userData: Partial<User>): Promise<User> {
-    const response = await axios.post(`${this.baseUrl}/users`, userData, {
-        headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    });
-    return response.data;
-  }
-
-  async updateUser(id: number, userData: Partial<User>): Promise<User> {
-    const response = await axios.put(`${this.baseUrl}/users/${id}`, userData, {
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    });
-    return response.data;
-  }
-
-  async deleteUser(id: number): Promise<boolean> {
-    const response = await axios.delete(`${this.baseUrl}/users/${id}`);
-    return response.status === 200;
-  }
 }
